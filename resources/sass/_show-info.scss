@@ -1,0 +1,7 @@
+.show-info {
+  &--mindf {
+    &::before {
+      content: 'TRUE';
+    }
+  }
+}
