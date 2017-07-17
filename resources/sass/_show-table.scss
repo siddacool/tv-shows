@@ -9,6 +9,11 @@ $show-table-td-network: 100px;
 $show-table-td-status: 80px;
 $show-table-td-imdb: 100px;
 
+@mixin fixedlayout {
+  margin: 0 auto;
+  width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+}
+
 .show-table {
   overflow: auto;
 
@@ -27,11 +32,11 @@ $show-table-td-imdb: 100px;
     }
 
     ul {
-      width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+      @include fixedlayout;
     }
 
     #table-from-json {
-      width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+      @include fixedlayout;
     }
 
     li {
