@@ -14,68 +14,77 @@ $show-table-td-imdb: 100px;
 
   ul {
     display: none;
+    text-transform: capitalize;
   }
 
   &--view-list {
-    @include desktopMix {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-      ul,
-      ol {
-        display: flex;
+    ul,
+    ol {
+      display: flex;
+    }
+
+    ul {
+      width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+    }
+
+    #table-from-json {
+      width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+    }
+
+    li {
+      display: inline-block;
+      flex-shrink: 0;
+      height: 21px;
+      overflow: hidden;
+
+      &:nth-child(1) {
+        width: $show-table-td-name;
       }
 
-      li {
-        display: inline-block;
-        flex-shrink: 0;
-        height: 21px;
-        overflow: hidden;
+      &:nth-child(2) {
+        width: $show-table-td-genre;
+      }
 
-        &:nth-child(1) {
-          width: $show-table-td-name;
-        }
+      &:nth-child(3) {
+        width: $show-table-td-type;
+      }
 
-        &:nth-child(2) {
-          width: $show-table-td-genre;
-        }
+      &:nth-child(4) {
+        width: $show-table-td-mindf;
+      }
 
-        &:nth-child(3) {
-          width: $show-table-td-type;
-        }
+      &:nth-child(5) {
+        width: $show-table-td-runtime;
+      }
 
-        &:nth-child(4) {
-          width: $show-table-td-mindf;
-        }
+      &:nth-child(6) {
+        width: $show-table-td-seasons;
+      }
 
-        &:nth-child(5) {
-          width: $show-table-td-runtime;
-        }
+      &:nth-child(7) {
+        width: $show-table-td-avgepisodes;
+      }
 
-        &:nth-child(6) {
-          width: $show-table-td-seasons;
-        }
+      &:nth-child(8) {
+        width: $show-table-td-network;
+      }
 
-        &:nth-child(7) {
-          width: $show-table-td-avgepisodes;
-        }
+      &:nth-child(9) {
+        width: $show-table-td-status;
+      }
 
-        &:nth-child(8) {
-          width: $show-table-td-network;
-        }
-
-        &:nth-child(9) {
-          width: $show-table-td-status;
-        }
-
-        &:nth-child(10) {
-          width: $show-table-td-imdb;
-        }
+      &:nth-child(10) {
+        width: $show-table-td-imdb;
       }
     }
   }
 
-  ul {
-    text-transform: capitalize;
+  &--view-card {
+    #table-from-json {
+      height: 100vh;
+    }
   }
 }
