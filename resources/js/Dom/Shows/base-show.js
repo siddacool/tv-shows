@@ -1,17 +1,15 @@
-const placeholder = '-';
-
 export default class {
   constructor(
-    name = placeholder,
-    genre = placeholder,
-    type = placeholder,
+    name,
+    genre,
+    type,
     mindf = false,
-    runtime = placeholder,
-    seasons = placeholder,
-    avgepisodes = placeholder,
-    network = placeholder,
-    status = placeholder,
-    imdb = placeholder,
+    runtime,
+    seasons,
+    avgepisodes,
+    network,
+    status,
+    imdb,
     ) {
     this.name = name;
     this.id = this.name.substring(0, 20).replace(/[^a-z\d]+/gi, '').toLowerCase();
