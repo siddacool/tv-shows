@@ -1,0 +1,71 @@
+$card-bg-color: #fff;
+$card-info-type-color: #7b7b7b;
+$card-info-genre-color: #fff;
+$card-info-genre-bg-color: #969595;
+$card-info-mindf-color: #fff;
+$card-info-mindf-bg-color: #969595;
+
+.show-table--view-card {
+  padding-bottom: 2rem;
+
+  .show-table-json {
+
+  }
+}
+
+.show-card {
+  background-color: $card-bg-color;
+  border-radius: 3px;
+  display: block;
+  margin: .5rem auto;
+  max-width: 400px;
+
+  &-info {
+    &-basic {
+      padding: .8rem;
+    }
+
+    &-extended {
+      padding: 0 .8rem;
+      padding-bottom: .8rem;
+    }
+
+    &--name {
+      align-items: center;
+      display: flex;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    &--type {
+      color: $card-info-type-color;
+      font-size: .95rem;
+    }
+
+    &--genre {
+      margin-bottom: 5px;
+      margin-top: 5px;
+
+      span {
+        margin-right: 5px;
+      }
+    }
+
+    &--mindf {
+      margin-left: 5px;
+    }
+
+    &--runtime {
+      align-items: center;
+      display: inline-block;
+      font-size: .8rem;
+
+      .icon {
+        display: inline-flex;
+        height: .7rem;
+        margin-right: 5px;
+        width: .7rem;
+      }
+    }
+  }
+}

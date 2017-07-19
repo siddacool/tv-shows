@@ -1,0 +1,27 @@
+$ui-pill-default-color: #fff;
+$ui-pill-deafult-bg-color: #969595;
+$ui-pill-danger-color: #fff;
+$ui-pill-danger-bg-color: #969595;
+
+.ui-pill {
+  border-radius: 10px;
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: normal;
+  padding: 2px 5px;
+
+  &--default {
+    background-color: $ui-pill-deafult-bg-color;
+    color: $ui-pill-default-color;
+  }
+
+  &--danger {
+    background-color: $ui-pill-danger-bg-color;
+    color: $ui-pill-danger-color;
+  }
+
+  &--large {
+    font-size: 1rem;
+  }
+}
+

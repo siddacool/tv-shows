@@ -1,4 +1,4 @@
-import { showsTable } from './StaticDOM';
+import showsTable from './StaticDOM/shows-table';
 import initTable from './init-table';
 
 const wrapper = document.getElementById('wrapper');

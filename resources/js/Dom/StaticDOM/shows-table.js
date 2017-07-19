@@ -8,12 +8,12 @@ function showsTable() {
         <li>mindfuck</li>
         <li>runtime</li>
         <li>seasons</li>
-        <li>average episodes</li>
+        <li>avg episodes</li>
         <li>network</li>
         <li>status</li>
         <li>imdb</li>
       </ul>
-      <div id="table-from-json">
+      <div id="table-from-json" class="show-table-json">
       </div>
     </div>
   `;
