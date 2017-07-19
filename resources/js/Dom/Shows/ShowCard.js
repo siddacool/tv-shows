@@ -7,7 +7,7 @@ export default class extends BaseShow {
 
   render() {
     return `
-      <ol data-show-id="${this.id}" class="card">
+      <ol data-show-id="${this.id}">
         <li>${this.name}</li>
         <li>${this.genre}</li>
         <li>${this.type}</li>
