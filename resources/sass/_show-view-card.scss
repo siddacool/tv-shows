@@ -9,7 +9,11 @@ $card-info-mindf-bg-color: #969595;
   padding-bottom: 2rem;
 
   .show-table-json {
-
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 }
 
@@ -19,6 +23,11 @@ $card-info-mindf-bg-color: #969595;
   display: block;
   margin: .5rem auto;
   max-width: 400px;
+
+  @include desktop {
+    margin: .5rem;
+    max-width: 300px;
+  }
 
   &-info {
     &-basic {
