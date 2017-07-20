@@ -1,10 +1,11 @@
 import showsTable from './StaticDOM/shows-table';
 import initTable from './init-table';
+import stickyTableHeader from './Events/sticky-table-header';
 
 const wrapper = document.getElementById('wrapper');
 const renderTableData = () => {
   const showsTableHolder = document.getElementById('show-table');
-  if (window.innerWidth <= 1024) {
+  if (window.innerWidth <= 1253) {
     initTable('card');
     showsTableHolder.classList.remove('show-table--view-list');
     showsTableHolder.classList.add('show-table--view-card');
@@ -12,6 +13,7 @@ const renderTableData = () => {
     initTable('list');
     showsTableHolder.classList.remove('show-table--view-card');
     showsTableHolder.classList.add('show-table--view-list');
+    stickyTableHeader();
   }
 };
 
