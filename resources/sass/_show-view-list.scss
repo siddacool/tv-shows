@@ -1,8 +1,11 @@
 $show-table-json-bg-color: #fff;
-$table-border-color: #dedddd;
-$th-bg-color: #dedddd;
+$table-border-color: #ececec;
+$th-border-color: #dedddd;
+$table-row-active-bg-color: #f5f5f5;
+$row-selector-bg-color: #dedddd;
+$row-selector-active-bg-color: #cacaca;
 
-$show-table-td-name: 315px;
+$show-table-td-name: 328px;
 $show-table-td-genre: 225px;
 $show-table-td-type: 125px;
 $show-table-td-mindf: 86px;
@@ -11,7 +14,7 @@ $show-table-td-seasons: 70px;
 $show-table-td-avgepisodes: 134px;
 $show-table-td-network: 100px;
 $show-table-td-status: 80px;
-$show-table-td-imdb: 100px;
+$show-table-td-imdb: 60px;
 
 @mixin fixedlayout {
   background-color: $show-table-json-bg-color;
@@ -25,15 +28,34 @@ $show-table-td-imdb: 100px;
 
   ul,
   ol {
-    border-bottom: 1px solid;
     display: flex;
+    position: relative;
   }
 
   ol {
-    border-bottom-color: $table-border-color;
-
     &:last-child {
       border-bottom: 0;
+    }
+
+    &.active {
+      background-color: $table-row-active-bg-color;
+
+      .row-selector--dynamic {
+        background-color: $row-selector-active-bg-color;
+      }
+
+      .show-list-info {
+        &--genre {
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      li {
+        height: initial;
+        white-space: initial;
+      }
     }
 
     li {
@@ -44,8 +66,11 @@ $show-table-td-imdb: 100px;
 
   ul {
     @include fixedlayout;
-    background-color: $th-bg-color;
-    border-bottom-color: $th-bg-color;
+    border-bottom: 1px solid $th-border-color;
+    border-left: 1px solid $table-border-color;
+    border-radius: 3px 3px 0 0;
+    border-right: 1px solid $table-border-color;
+    border-top: 1px solid $table-border-color;
     flex-shrink: 0;
 
     li {
@@ -55,106 +80,108 @@ $show-table-td-imdb: 100px;
 
   .show-table-json {
     @include fixedlayout;
-    padding-bottom: .5rem;
+    border-bottom: 1px solid $table-border-color;
+    border-radius: 0 0 3px 0;
+    border-right: 1px solid $table-border-color;
   }
 
   li {
     display: inline-block;
     flex-shrink: 0;
+    font-size: .92rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    &:nth-child(1) {
-      width: $show-table-td-name;
-    }
-
     &:nth-child(2) {
-      width: $show-table-td-genre;
+      padding-left: 18px;
+      width: $show-table-td-name;
     }
 
     &:nth-child(3) {
-      width: $show-table-td-type;
+      width: $show-table-td-genre;
     }
 
     &:nth-child(4) {
-      width: $show-table-td-mindf;
+      width: $show-table-td-type;
     }
 
     &:nth-child(5) {
-      width: $show-table-td-runtime;
+      width: $show-table-td-mindf;
     }
 
     &:nth-child(6) {
-      width: $show-table-td-seasons;
+      width: $show-table-td-runtime;
     }
 
     &:nth-child(7) {
-      width: $show-table-td-avgepisodes;
+      width: $show-table-td-seasons;
     }
 
     &:nth-child(8) {
-      width: $show-table-td-network;
+      width: $show-table-td-avgepisodes;
     }
 
     &:nth-child(9) {
-      width: $show-table-td-status;
+      width: $show-table-td-network;
     }
 
     &:nth-child(10) {
+      width: $show-table-td-status;
+    }
+
+    &:nth-child(11) {
       width: $show-table-td-imdb;
     }
   }
-}
 
-.show-list {
-
-  &-info {
-    &--name {
-      width: $show-table-td-name;
-    }
-
+  .show-list-info {
     &--genre {
-      width: $show-table-td-genre;
+      position: relative;
 
-      span:not(:last-child) {
-        &::after {
-          content: ',';
-        }
+      &::after {
+        background: linear-gradient(to right, transparent , #fff);
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 150px;
       }
     }
 
     &--type {
-      width: $show-table-td-type;
-    }
-
-    &--mindf {
-      width: $show-table-td-mindf;
-    }
-
-    &--runtime {
-      width: $show-table-td-runtime;
-    }
-
-    &--seasons {
-      width: $show-table-td-seasons;
-    }
-
-    &--avgepisodes {
-      width: $show-table-td-avgepisodes;
+      font-size: .9rem;
     }
 
     &--network {
-      width: $show-table-td-network;
+      font-size: .9rem;
     }
 
     &--status {
-      width: $show-table-td-status;
+      font-size: .9rem;
     }
 
     &--imdb {
-      width: $show-table-td-imdb;
+      text-align: center;
     }
   }
+}
 
+
+
+.row-selector {
+  background-color: #fff;
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 12px;
+
+  &--dynamic {
+    background-color: $row-selector-bg-color;
+    border: 0;
+  }
 }

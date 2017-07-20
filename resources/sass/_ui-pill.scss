@@ -2,6 +2,14 @@ $ui-pill-default-color: #fff;
 $ui-pill-deafult-bg-color: #969595;
 $ui-pill-danger-color: #fff;
 $ui-pill-danger-bg-color: #969595;
+$ui-pill-safe-color: #fff;
+$ui-pill-safe-bg-color: #969595;
+$ui-pill-info-color: #fff;
+$ui-pill-info-bg-color: #969595;
+$ui-pill-warning-color: #fff;
+$ui-pill-warning-bg-color: #969595;
+$ui-pill-light-color: #fff;
+$ui-pill-light-bg-color: #969595;
 
 .ui-pill {
   border-radius: 10px;
@@ -20,8 +28,40 @@ $ui-pill-danger-bg-color: #969595;
     color: $ui-pill-danger-color;
   }
 
+  &--safe {
+    background-color: $ui-pill-safe-bg-color;
+    color: $ui-pill-safe-color;
+  }
+
+  &--info {
+    background-color: $ui-pill-info-bg-color;
+    color: $ui-pill-info-color;
+  }
+
+  &--warning {
+    background-color: $ui-pill-warning-bg-color;
+    color: $ui-pill-warning-color;
+  }
+
+  &--light {
+    background-color: $ui-pill-light-bg-color;
+    color: $ui-pill-light-color;
+  }
+
   &--large {
     font-size: 1rem;
+  }
+
+  &--icon {
+    align-items: center;
+    display: inline-flex;
+
+    .icon {
+      fill: #fff;
+      height: .9rem;
+      margin-right: 3px;
+      width: .9rem;
+    }
   }
 }
 

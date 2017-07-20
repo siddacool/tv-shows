@@ -1,4 +1,6 @@
 import BaseShow from './base-show';
+import icon from '../../custom-methods/load-svg-icon';
+import RowSelector from '../DynamicDOM/RowSelector';
 
 const placeholder = '-';
 
@@ -16,15 +18,21 @@ export default class extends BaseShow {
     imdb = placeholder,
     ) {
     super(name, genre, type, mindf, runtime, seasons, avgepisodes, network, status, imdb);
+    this.rowSelector = new RowSelector(`row-select-${this.id}`);
   }
 
   render() {
     return `
       <ol data-show-id="${this.id}">
+        ${this.rowSelector.render()}
         <li class="show-list-info--name">${this.name}</li>
-        <li class="show-list-info--genre">${this.genre.map(genres => `<span>${genres}</span>`).join('')}</li>
+        <li class="show-list-info--genre">
+          ${this.genre.map(genres => `
+            <span class="ui-pill ui-pill--default">${genres}</span>
+          `).join('')}
+        </li>
         <li class="show-list-info--type">${this.type}</li>
-        <li class="show-list-info--isMindf">${this.isMindf ? 'TRUE' : ''}</li>
+        <li class="show-list-info--isMindf">${this.isMindf ? '<span class="ui-dot ui-dot--danger"></span>' : ''}</li>
         <li class="show-list-info--runtime">${this.runtime}</li>
         <li class="show-list-info--seasons">${this.seasons}</li>
         <li class="show-list-info--avgepisodes">${this.avgepisodes}</li>
@@ -32,7 +40,7 @@ export default class extends BaseShow {
         <li class="show-list-info--status">${this.status}</li>
         <li class="show-list-info--imdb">
           <a href="${this.imdb}" title="${this.name}" target="_blank" class="show-info--imdb">
-            link
+            ${icon('new-window')}
           </a>
         </li>
       </ol>
