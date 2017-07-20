@@ -13,7 +13,7 @@ function showsTable() {
         <li>avg episodes</li>
         <li>network</li>
         <li>status</li>
-        <li>imdb</li>
+        <li>IMDB</li>
       </ul>
       <div id="table-from-json" class="show-table-json">
       </div>

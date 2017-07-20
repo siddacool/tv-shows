@@ -1,5 +1,6 @@
 $show-table-json-bg-color: #fff;
-$table-border-color: #dedddd;
+$table-border-color: #ececec;
+$th-border-color: #dedddd;
 $table-row-active-bg-color: #f5f5f5;
 $row-selector-bg-color: #dedddd;
 $row-selector-active-bg-color: #cacaca;
@@ -13,7 +14,7 @@ $show-table-td-seasons: 70px;
 $show-table-td-avgepisodes: 134px;
 $show-table-td-network: 100px;
 $show-table-td-status: 80px;
-$show-table-td-imdb: 100px;
+$show-table-td-imdb: 60px;
 
 @mixin fixedlayout {
   background-color: $show-table-json-bg-color;
@@ -43,6 +44,14 @@ $show-table-td-imdb: 100px;
         background-color: $row-selector-active-bg-color;
       }
 
+      .show-list-info {
+        &--genre {
+          &::after {
+            display: none;
+          }
+        }
+      }
+
       li {
         height: initial;
         white-space: initial;
@@ -50,14 +59,18 @@ $show-table-td-imdb: 100px;
     }
 
     li {
-      height: 36px;
+      height: 37px;
       padding: .5rem .3rem;
     }
   }
 
   ul {
     @include fixedlayout;
-    border-bottom: 1px solid $table-border-color;
+    border-bottom: 1px solid $th-border-color;
+    border-left: 1px solid $table-border-color;
+    border-radius: 3px 3px 0 0;
+    border-right: 1px solid $table-border-color;
+    border-top: 1px solid $table-border-color;
     flex-shrink: 0;
 
     li {
@@ -67,6 +80,9 @@ $show-table-td-imdb: 100px;
 
   .show-table-json {
     @include fixedlayout;
+    border-bottom: 1px solid $table-border-color;
+    border-radius: 0 0 3px 0;
+    border-right: 1px solid $table-border-color;
   }
 
   li {
@@ -118,26 +134,41 @@ $show-table-td-imdb: 100px;
       width: $show-table-td-imdb;
     }
   }
-}
 
-.show-list {
+  .show-list-info {
+    &--genre {
+      position: relative;
 
-  &-info {
-    &--name {
-      width: $show-table-td-name;
+      &::after {
+        background: linear-gradient(to right, transparent , #fff);
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 150px;
+      }
     }
 
-    &--genre {
-      width: $show-table-td-genre;
+    &--type {
+      font-size: .9rem;
+    }
 
-      span:not(:last-child) {
-        &::after {
-          content: ', ';
-        }
-      }
+    &--network {
+      font-size: .9rem;
+    }
+
+    &--status {
+      font-size: .9rem;
+    }
+
+    &--imdb {
+      text-align: center;
     }
   }
 }
+
+
 
 .row-selector {
   background-color: #fff;
