@@ -1,4 +1,5 @@
 import BaseShow from './base-show';
+import RowSelector from '../DynamicDOM/RowSelector';
 
 const placeholder = '-';
 
@@ -16,11 +17,13 @@ export default class extends BaseShow {
     imdb = placeholder,
     ) {
     super(name, genre, type, mindf, runtime, seasons, avgepisodes, network, status, imdb);
+    this.rowSelector = new RowSelector(`row-select-${this.id}`);
   }
 
   render() {
     return `
       <ol data-show-id="${this.id}">
+        ${this.rowSelector.render()}
         <li class="show-list-info--name">${this.name}</li>
         <li class="show-list-info--genre">${this.genre.map(genres => `<span>${genres}</span>`).join('')}</li>
         <li class="show-list-info--type">${this.type}</li>
