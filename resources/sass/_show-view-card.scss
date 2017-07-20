@@ -1,4 +1,5 @@
 $card-bg-color: #fff;
+$card-focus-bg-color: #fdfdfd;
 $card-info-type-color: #7b7b7b;
 $card-info-genre-color: #fff;
 $card-info-genre-bg-color: #969595;
@@ -9,7 +10,11 @@ $card-info-mindf-bg-color: #969595;
   padding-bottom: 2rem;
 
   .show-table-json {
-
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 }
 
@@ -19,16 +24,18 @@ $card-info-mindf-bg-color: #969595;
   display: block;
   margin: .5rem auto;
   max-width: 400px;
+  padding: .8rem;
+
+  &:active {
+    background-color: $card-focus-bg-color;
+  }
+
+  @include desktop {
+    margin: .5rem;
+    max-width: 300px;
+  }
 
   &-info {
-    &-basic {
-      padding: .8rem;
-    }
-
-    &-extended {
-      padding: 0 .8rem;
-      padding-bottom: .8rem;
-    }
 
     &--name {
       align-items: center;
@@ -56,16 +63,8 @@ $card-info-mindf-bg-color: #969595;
     }
 
     &--runtime {
-      align-items: center;
-      display: inline-block;
-      font-size: .8rem;
-
-      .icon {
-        display: inline-flex;
-        height: .7rem;
-        margin-right: 5px;
-        width: .7rem;
-      }
+      display: block;
+      margin-top: 10px;
     }
   }
 }

@@ -8,23 +8,41 @@ $row-selector-active-bg-color: #cacaca;
 $show-table-td-name: 328px;
 $show-table-td-genre: 225px;
 $show-table-td-type: 125px;
-$show-table-td-mindf: 86px;
+$show-table-td-mindf: 75px;
 $show-table-td-runtime: 76px;
 $show-table-td-seasons: 70px;
-$show-table-td-avgepisodes: 134px;
+$show-table-td-avgepisodes: 100px;
 $show-table-td-network: 100px;
 $show-table-td-status: 80px;
 $show-table-td-imdb: 60px;
+$show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
 
 @mixin fixedlayout {
   background-color: $show-table-json-bg-color;
   margin: 0 auto;
-  width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+  width: $show-table-total-width;
 }
 
 .show-table--view-list {
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  &.sticky {
+    ul {
+      background-color: #fff;
+      left: 0;
+      margin-left: calc(49.5% - #{$show-table-total-width / 2});
+      margin-right: 2%;
+      position: fixed;
+      top: 0;
+      z-index: 50;
+    }
+
+    li {
+      padding: .5rem .3rem;
+    }
+  }
 
   ul,
   ol {
@@ -74,7 +92,12 @@ $show-table-td-imdb: 60px;
     flex-shrink: 0;
 
     li {
-      padding: .8rem .3rem;
+      font-size: .8rem;
+      padding: .6rem .3rem;
+    }
+
+    .row-selector {
+      border-radius: 3px 0 0 0;
     }
   }
 
@@ -83,6 +106,7 @@ $show-table-td-imdb: 60px;
     border-bottom: 1px solid $table-border-color;
     border-radius: 0 0 3px 0;
     border-right: 1px solid $table-border-color;
+    margin-bottom: 2rem;
   }
 
   li {
@@ -152,6 +176,10 @@ $show-table-td-imdb: 60px;
 
     &--type {
       font-size: .9rem;
+    }
+
+    &--mindf {
+      padding-left: 1rem;
     }
 
     &--network {
