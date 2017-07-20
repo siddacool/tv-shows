@@ -32,7 +32,7 @@ export default class extends BaseShow {
           `).join('')}
         </li>
         <li class="show-list-info--type">${this.type}</li>
-        <li class="show-list-info--isMindf">${this.isMindf ? 'TRUE' : ''}</li>
+        <li class="show-list-info--isMindf">${this.isMindf ? '<span class="ui-dot ui-dot--danger"></span>' : ''}</li>
         <li class="show-list-info--runtime">${this.runtime}</li>
         <li class="show-list-info--seasons">${this.seasons}</li>
         <li class="show-list-info--avgepisodes">${this.avgepisodes}</li>

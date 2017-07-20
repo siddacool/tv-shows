@@ -1,0 +1,50 @@
+$ui-dot-default-color: #fff;
+$ui-dot-deafult-bg-color: #969595;
+$ui-dot-danger-color: #fff;
+$ui-dot-danger-bg-color: #969595;
+$ui-dot-safe-color: #fff;
+$ui-dot-safe-bg-color: #969595;
+$ui-dot-info-color: #fff;
+$ui-dot-info-bg-color: #969595;
+$ui-dot-warning-color: #fff;
+$ui-dot-warning-bg-color: #969595;
+$ui-dot-light-color: #fff;
+$ui-dot-light-bg-color: #969595;
+
+.ui-dot {
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+
+  &--default {
+    background-color: $ui-dot-deafult-bg-color;
+    color: $ui-dot-default-color;
+  }
+
+  &--danger {
+    background-color: $ui-dot-danger-bg-color;
+    color: $ui-dot-danger-color;
+  }
+
+  &--safe {
+    background-color: $ui-dot-safe-bg-color;
+    color: $ui-dot-safe-color;
+  }
+
+  &--info {
+    background-color: $ui-dot-info-bg-color;
+    color: $ui-dot-info-color;
+  }
+
+  &--warning {
+    background-color: $ui-dot-warning-bg-color;
+    color: $ui-dot-warning-color;
+  }
+
+  &--light {
+    background-color: $ui-dot-light-bg-color;
+    color: $ui-dot-light-color;
+  }
+}
+
