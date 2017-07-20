@@ -42,6 +42,11 @@ $show-table-td-imdb: 100px;
       .row-selector--dynamic {
         background-color: $row-selector-active-bg-color;
       }
+
+      li {
+        height: initial;
+        white-space: initial;
+      }
     }
 
     li {
@@ -136,9 +141,9 @@ $show-table-td-imdb: 100px;
 
 .row-selector {
   background-color: #fff;
-  border-bottom: 1px solid $table-border-color;
+  border-bottom: 1px solid transparent;
   display: inline-block;
-  height: 46.59px;
+  height: 100%;
   left: 0;
   position: absolute;
   top: 0;
@@ -147,6 +152,5 @@ $show-table-td-imdb: 100px;
   &--dynamic {
     background-color: $row-selector-bg-color;
     border: 0;
-    height: 36px;
   }
 }
