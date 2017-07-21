@@ -1,26 +1,27 @@
 import showsTable from './StaticDOM/shows-table';
+import showsTableMobile from './StaticDOM/shows-table-mobile';
 import initTable from './init-table';
 import stickyTableHeader from './Events/sticky-table-header';
 
 const wrapper = document.getElementById('wrapper');
 const renderTableData = () => {
-  const showsTableHolder = document.getElementById('show-table');
   if (window.innerWidth <= 1253) {
-    initTable('card');
-    showsTableHolder.classList.remove('show-table--view-list');
-    showsTableHolder.classList.add('show-table--view-card');
+    if (!document.querySelector('.show-table--view-card')) {
+      wrapper.innerHTML = `
+        ${showsTableMobile()}
+      `;
+      initTable('card');
+    }
   } else {
-    initTable('list');
-    showsTableHolder.classList.remove('show-table--view-card');
-    showsTableHolder.classList.add('show-table--view-list');
-    stickyTableHeader();
-    document.getElementById('table-header').style.display = '';
+    if (!document.querySelector('.show-table--view-list')) {
+      wrapper.innerHTML = `
+        ${showsTable()}
+      `;
+      initTable('list');
+      stickyTableHeader();
+    }
   }
 };
-
-wrapper.innerHTML = `
-  ${showsTable()}
-`;
 
 setTimeout(() => {
   renderTableData();
