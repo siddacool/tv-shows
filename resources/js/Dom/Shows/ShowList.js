@@ -4,6 +4,20 @@ import RowSelector from '../DynamicDOM/RowSelector';
 
 const placeholder = '-';
 
+function renderGenre(target) {
+  return `
+    ${target.map(genres => `
+      <span class="ui-pill ui-pill--info">${genres}</span>
+    `).join('')}
+  `;
+}
+
+function renderMindFuck(target) {
+  return `
+    ${target ? '<span class="ui-dot ui-dot--danger"></span>' : ''}
+  `;
+}
+
 export default class extends BaseShow {
   constructor(
     name = placeholder,
@@ -26,13 +40,9 @@ export default class extends BaseShow {
       <ol data-show-id="${this.id}">
         ${this.rowSelector.render()}
         <li class="show-list-info--name">${this.name}</li>
-        <li class="show-list-info--genre">
-          ${this.genre.map(genres => `
-            <span class="ui-pill ui-pill--info">${genres}</span>
-          `).join('')}
-        </li>
+        <li class="show-list-info--genre">${renderGenre(this.genre)}</li>
         <li class="show-list-info--type">${this.type}</li>
-        <li class="show-list-info--mindf">${this.isMindf ? '<span class="ui-dot ui-dot--danger"></span>' : ''}</li>
+        <li class="show-list-info--mindf">${renderMindFuck(this.isMindf)}</li>
         <li class="show-list-info--runtime">${this.runtime}</li>
         <li class="show-list-info--seasons">${this.seasons}</li>
         <li class="show-list-info--avgepisodes">${this.avgepisodes}</li>
