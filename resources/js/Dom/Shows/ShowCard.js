@@ -12,27 +12,35 @@ function renderMindFuck(target) {
 
 function renderGenre(target) {
   return `
-     ${target.map(genres => `
-            <span class="ui-pill ui-pill--info">${genres}</span>
-    `).join('')}
+    <div class="show-card-info--genre">
+      ${target.map(genres => `
+        <span class="ui-pill ui-pill--info">${genres}</span>
+      `).join('')}
+    </div>
   `;
 }
 
 function renderSeason(target) {
   return `
-    ${target}
-    ${target <= 1
-      ? 'Season'
-      : 'Seasons'
-    }
+    <span class="show-card-info--seasons">
+      <span class="ui-tag ui-tag--warning">
+        ${target}
+        ${target <= 1
+          ? 'Season'
+          : 'Seasons'
+        }
+      </span>
+    </span>
   `;
 }
 
 function renderStatus(target) {
   return `
-    <span class="ui-tag ${target === 'ongoing' ? 'ui-tag--safe' : 'ui-tag--danger'}">
-      ${target}
-    </span> 
+    <span class="show-card-info--status">
+      <span class="ui-tag ${target === 'ongoing' ? 'ui-tag--safe' : 'ui-tag--danger'}">
+        ${target}
+      </span>
+    </span>
   `;
 }
 
@@ -53,9 +61,7 @@ export default class extends BaseShow {
         <div class="show-card-info-description">
           <span class="show-card-info--type">${this.type}</span>${this.network ? `, <span class="show-card-info--network">${this.network}</span>` : ''}
         </div>
-        <div class="show-card-info--genre">
-          ${renderGenre(this.genre)}
-        </div>
+        ${renderGenre(this.genre)}
       </div>
     `;
   }
@@ -68,19 +74,13 @@ export default class extends BaseShow {
             ${icon('time')} ${this.runtime} Mins 
           </span> 
         </span>
-        <span class="show-card-info--seasons">
-          <span class="ui-tag ui-tag--warning">
-            ${renderSeason(this.seasons)}
-          </span> 
-        </span>
+        ${renderSeason(this.seasons)}
         <span class="show-card-info--avgepisodes">
           <span class="ui-tag ui-tag--new">
             ${this.avgepisodes} Episodes
           </span> 
         </span>
-        <span class="show-card-info--status">
-          ${renderStatus(this.status)}
-        </span>
+        ${renderStatus(this.status)}
       </div>
     `;
   }
