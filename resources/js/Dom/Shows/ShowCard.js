@@ -17,17 +17,19 @@ export default class extends BaseShow {
         }
         </div>
         <div class="show-card-info--type">
-          ${this.type}, <span class="show-card-info--network">${this.network}</span>
+          ${this.type}${this.network ? `, <span class="show-card-info--network">${this.network}</span>` : ''}
         </div>
         <div class="show-card-info--genre">
           ${this.genre.map(genres => `
-            <span class="ui-pill ui-pill--default">${genres}</span>
+            <span class="ui-pill ui-pill--info">${genres}</span>
           `).join('')}
         </div>
         <div class="show-card-info--runtime">
-          <span class="ui-tag ui-tag--safe ui-tag--icon">${icon('time')} ${this.runtime} Mins </span> 
+          <span class="ui-tag ui-tag--info ui-tag--icon">
+            ${icon('time')} ${this.runtime} Mins 
+          </span> 
           <span class="show-card-info--seasons">
-            <span class="ui-tag ui-tag--default">
+            <span class="ui-tag ui-tag--warning">
               ${this.seasons}
               ${this.seasons <= 1
                 ? 'Season'
@@ -36,12 +38,12 @@ export default class extends BaseShow {
             </span> 
           </span>
           <span class="show-card-info--avgepisodes">
-            <span class="ui-tag ui-tag--default">
+            <span class="ui-tag ui-tag--new">
               ${this.avgepisodes} Episodes
             </span> 
           </span>
           <span class="show-card-info--status">
-            <span class="ui-tag ${this.status === 'Ongoing' || 'ongoing' ? 'ui-tag--safe' : 'ui-tag--default'}">
+            <span class="ui-tag ${this.status === 'Ongoing' ? 'ui-tag--safe' : 'ui-tag--danger'}">
               ${this.status}
             </span> 
           </span>
