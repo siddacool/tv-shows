@@ -20,7 +20,7 @@ export default class {
     this.seasons = seasons;
     this.avgepisodes = avgepisodes;
     this.network = network;
-    this.status = status;
+    this.status = status.toLowerCase();
     this.imdb = imdb;
   }
 }

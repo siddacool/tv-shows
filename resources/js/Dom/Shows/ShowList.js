@@ -4,6 +4,29 @@ import RowSelector from '../DynamicDOM/RowSelector';
 
 const placeholder = '-';
 
+function renderGenre(target) {
+  return `
+    ${target.map(genres => `
+      <span class="ui-pill ui-pill--info">${genres}</span>
+    `).join('')}
+  `;
+}
+
+function renderMindFuck(target) {
+  return `
+    ${target ? '<span class="ui-dot ui-dot--danger"></span>' : ''}
+  `;
+}
+
+function renderStatus(target) {
+  return `
+    <li class="show-list-info--status 
+      ui-backdrop ${target === 'ongoing' ? 'ui-backdrop--safe' : 'ui-backdrop--danger'}">
+      ${target}
+    </li>
+  `;
+}
+
 export default class extends BaseShow {
   constructor(
     name = placeholder,
@@ -26,18 +49,14 @@ export default class extends BaseShow {
       <ol data-show-id="${this.id}">
         ${this.rowSelector.render()}
         <li class="show-list-info--name">${this.name}</li>
-        <li class="show-list-info--genre">
-          ${this.genre.map(genres => `
-            <span class="ui-pill ui-pill--default">${genres}</span>
-          `).join('')}
-        </li>
+        <li class="show-list-info--genre">${renderGenre(this.genre)}</li>
         <li class="show-list-info--type">${this.type}</li>
-        <li class="show-list-info--mindf">${this.isMindf ? '<span class="ui-dot ui-dot--danger"></span>' : ''}</li>
-        <li class="show-list-info--runtime">${this.runtime}</li>
-        <li class="show-list-info--seasons">${this.seasons}</li>
-        <li class="show-list-info--avgepisodes">${this.avgepisodes}</li>
+        <li class="show-list-info--mindf">${renderMindFuck(this.isMindf)}</li>
         <li class="show-list-info--network">${this.network}</li>
-        <li class="show-list-info--status">${this.status}</li>
+        <li class="show-list-info--runtime ui-backdrop ui-backdrop--info">${this.runtime}</li>
+        <li class="show-list-info--seasons ui-backdrop ui-backdrop--warning">${this.seasons}</li>
+        <li class="show-list-info--avgepisodes ui-backdrop ui-backdrop--new">${this.avgepisodes}</li>
+        ${renderStatus(this.status)}
         <li class="show-list-info--imdb">
           <a href="${this.imdb}" title="${this.name}" target="_blank" class="show-info--imdb">
             ${icon('new-window')}

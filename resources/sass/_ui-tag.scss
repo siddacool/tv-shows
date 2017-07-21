@@ -1,8 +1,9 @@
 $ui-tag-default-bg-color: #f4f5f7;
-$ui-tag-danger-bg-color: #f4f5f7;
-$ui-tag-warning-bg-color: #f4f5f7;
-$ui-tag-safe-bg-color: #f4f5f7;
-$ui-tag-info-bg-color: #f4f5f7;
+$ui-tag-danger-bg-color: $aui-r50;
+$ui-tag-warning-bg-color: $aui-y75;
+$ui-tag-safe-bg-color: $aui-g50;
+$ui-tag-info-bg-color: #e8f0ff;
+$ui-tag-new-bg-color: $aui-p50;
 
 .ui-tag {
   border-radius: 3px;
@@ -32,6 +33,10 @@ $ui-tag-info-bg-color: #f4f5f7;
 
   &--info {
     background-color: $ui-tag-info-bg-color;
+  }
+
+  &--new {
+    background-color: $ui-tag-new-bg-color;
   }
 
   &--icon {
