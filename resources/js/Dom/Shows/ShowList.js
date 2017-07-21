@@ -28,7 +28,7 @@ export default class extends BaseShow {
         <li class="show-list-info--name">${this.name}</li>
         <li class="show-list-info--genre">
           ${this.genre.map(genres => `
-            <span class="ui-pill ui-pill--default">${genres}</span>
+            <span class="ui-pill ui-pill--info">${genres}</span>
           `).join('')}
         </li>
         <li class="show-list-info--type">${this.type}</li>
