@@ -14,6 +14,7 @@ const renderTableData = () => {
     showsTableHolder.classList.remove('show-table--view-card');
     showsTableHolder.classList.add('show-table--view-list');
     stickyTableHeader();
+    document.getElementById('table-header').style.display = '';
   }
 };
 
