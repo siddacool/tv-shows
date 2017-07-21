@@ -7,7 +7,7 @@ $card-info-mindf-color: #fff;
 $card-info-mindf-bg-color: #969595;
 
 .show-table--view-card {
-  padding-bottom: 2rem;
+  padding-bottom: .5rem;
 
   .show-table-json {
     @include desktop {
@@ -22,7 +22,7 @@ $card-info-mindf-bg-color: #969595;
   background-color: $card-bg-color;
   border-radius: 3px;
   display: block;
-  margin: .5rem auto;
+  margin: .7rem auto;
   max-width: 400px;
   padding: .8rem;
 
