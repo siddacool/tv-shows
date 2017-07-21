@@ -37,32 +37,17 @@ $card-info-mindf-bg-color: #969595;
 
   &-info {
 
-    &--name {
+    &-title {
       align-items: center;
       display: flex;
-      font-size: 1.2rem;
-      font-weight: 500;
       margin-bottom: 2px;
     }
 
-    &--type {
-      color: $card-info-type-color;
-      font-size: .95rem;
+    &-description {
       margin-bottom: 5px;
     }
 
-    &--genre {
-      margin-bottom: 9px;
-
-      span {
-      }
-    }
-
-    &--mindf {
-      margin-left: 5px;
-    }
-
-    &--runtime {
+    &-extednded {
       display: block;
       margin-bottom: 3px;
 
@@ -71,6 +56,33 @@ $card-info-mindf-bg-color: #969595;
           margin-left: 0;
         }
       }
+    }
+
+    &--name {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    &--type {
+      color: $card-info-type-color;
+      font-size: .95rem;
+    }
+
+    &--network {
+      color: $card-info-type-color;
+      font-size: .95rem;
+    }
+
+    &--genre {
+      margin-bottom: 9px;
+    }
+
+    &--mindf {
+      margin-left: 5px;
+    }
+
+    &--status {
+      text-transform: capitalize;
     }
   }
 }
