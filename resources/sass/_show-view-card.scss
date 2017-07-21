@@ -42,19 +42,19 @@ $card-info-mindf-bg-color: #969595;
       display: flex;
       font-size: 1.2rem;
       font-weight: 500;
+      margin-bottom: 2px;
     }
 
     &--type {
       color: $card-info-type-color;
       font-size: .95rem;
+      margin-bottom: 5px;
     }
 
     &--genre {
-      margin-bottom: 5px;
-      margin-top: 5px;
+      margin-bottom: 9px;
 
       span {
-        margin-right: 5px;
       }
     }
 
@@ -64,7 +64,13 @@ $card-info-mindf-bg-color: #969595;
 
     &--runtime {
       display: block;
-      margin-top: 10px;
+      margin-bottom: 3px;
+
+      span {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
     }
   }
 }
