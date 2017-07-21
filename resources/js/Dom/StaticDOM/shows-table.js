@@ -8,10 +8,10 @@ function showsTable() {
         <li>genre</li>
         <li>type</li>
         <li>mindfuck</li>
+        <li>network</li>
         <li>runtime</li>
         <li>seasons</li>
-        <li>avg episodes</li>
-        <li>network</li>
+        <li>avg ep</li>
         <li>status</li>
         <li>IMDB</li>
       </ul>

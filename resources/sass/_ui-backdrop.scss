@@ -1,0 +1,32 @@
+$ui-backdrop-default-color: #f4f5f7;
+$ui-backdrop-danger-color: $aui-r50;
+$ui-backdrop-warning-color: $aui-y75;
+$ui-backdrop-safe-color: $aui-g50;
+$ui-backdrop-info-color: #e8f0ff;
+$ui-backdrop-new-color: $aui-p50;
+
+.ui-backdrop {
+  &--default {
+    background-color: $ui-backdrop-default-color;
+  }
+
+  &--danger {
+    background-color: $ui-backdrop-danger-color;
+  }
+
+  &--warning {
+    background-color: $ui-backdrop-warning-color;
+  }
+
+  &--safe {
+    background-color: $ui-backdrop-safe-color;
+  }
+
+  &--info {
+    background-color: $ui-backdrop-info-color;
+  }
+
+  &--new {
+    background-color: $ui-backdrop-new-color;
+  }
+}

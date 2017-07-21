@@ -6,7 +6,7 @@ const filterActiveLoop = (thisTarget) => {
     const elm = allRowSelectors[i];
     const parent = elm.parentElement;
     if (elm.getAttribute('data-dom-id') === thisTarget.getAttribute('data-dom-id')) {
-      parent.classList.add('active');
+      parent.classList.toggle('active');
     } else {
       parent.classList.remove('active');
     }

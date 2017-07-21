@@ -1,21 +1,26 @@
 $show-table-json-bg-color: #fff;
 $table-border-color: #ececec;
 $th-border-color: #dedddd;
-$table-row-active-bg-color: #f5f5f5;
-$row-selector-bg-color: #dedddd;
-$row-selector-active-bg-color: #cacaca;
+$table-row-active-bg-color: $aui-b50;
+$row-selector-bg-color-1: #d4d4d4;
+$row-selector-bg-color-2: #cecccc;
+$row-selector-active-bg-color-1: $aui-b200;
+$row-selector-active-bg-color-2: $aui-b300;
+$row-selector-active-border-color: #c3dbff;
 
 $show-table-td-name: 328px;
 $show-table-td-genre: 225px;
 $show-table-td-type: 125px;
 $show-table-td-mindf: 75px;
-$show-table-td-runtime: 76px;
-$show-table-td-seasons: 70px;
-$show-table-td-avgepisodes: 100px;
 $show-table-td-network: 100px;
+$show-table-td-runtime: 80px;
+$show-table-td-seasons: 80px;
+$show-table-td-avgepisodes: 80px;
 $show-table-td-status: 80px;
 $show-table-td-imdb: 60px;
 $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-table-td-type + $show-table-td-mindf + $show-table-td-runtime + $show-table-td-seasons + $show-table-td-avgepisodes + $show-table-td-network + $show-table-td-status + $show-table-td-imdb;
+
+$list-info-imdb-hover-color: $aui-b300;
 
 @mixin fixedlayout {
   background-color: $show-table-json-bg-color;
@@ -51,15 +56,17 @@ $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-tabl
   }
 
   ol {
-    &:last-child {
-      border-bottom: 0;
-    }
-
     &.active {
       background-color: $table-row-active-bg-color;
 
+      &:last-child {
+        li {
+          border-bottom-color: $row-selector-active-border-color;
+        }
+      }
+
       .row-selector--dynamic {
-        background-color: $row-selector-active-bg-color;
+        background: linear-gradient(to right, $row-selector-active-bg-color-1 , $row-selector-active-bg-color-2);
       }
 
       .show-list-info {
@@ -74,10 +81,22 @@ $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-tabl
         height: initial;
         white-space: initial;
       }
+
+      .show-list-info {
+        &--runtime,
+        &--seasons,
+        &--avgepisodes,
+        &--status {
+          border-bottom-color: $row-selector-active-border-color;
+          border-top-color: $row-selector-active-border-color;
+        }
+      }
     }
 
     li {
-      height: 37px;
+      border-bottom: 1px solid transparent;
+      border-top: 1px solid transparent;
+      height: 39px;
       padding: .5rem .3rem;
     }
   }
@@ -135,19 +154,19 @@ $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-tabl
     }
 
     &:nth-child(6) {
-      width: $show-table-td-runtime;
+      width: $show-table-td-network;
     }
 
     &:nth-child(7) {
-      width: $show-table-td-seasons;
+      width: $show-table-td-runtime;
     }
 
     &:nth-child(8) {
-      width: $show-table-td-avgepisodes;
+      width: $show-table-td-seasons;
     }
 
     &:nth-child(9) {
-      width: $show-table-td-network;
+      width: $show-table-td-avgepisodes;
     }
 
     &:nth-child(10) {
@@ -180,6 +199,8 @@ $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-tabl
 
     &--mindf {
       padding-left: 1rem;
+      padding-right: 21px;
+      text-align: center;
     }
 
     &--network {
@@ -188,10 +209,21 @@ $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-tabl
 
     &--status {
       font-size: .9rem;
+      text-transform: capitalize;
     }
 
     &--imdb {
       text-align: center;
+
+      a {
+        display: block;
+
+        &:hover {
+          .icon {
+            fill: $list-info-imdb-hover-color;
+          }
+        }
+      }
     }
   }
 }
@@ -206,10 +238,10 @@ $show-table-total-width: $show-table-td-name + $show-table-td-genre + $show-tabl
   left: 0;
   position: absolute;
   top: 0;
-  width: 12px;
+  width: 9px;
 
   &--dynamic {
-    background-color: $row-selector-bg-color;
+    background: linear-gradient(to right, $row-selector-bg-color-1 , $row-selector-bg-color-2);
     border: 0;
   }
 }
