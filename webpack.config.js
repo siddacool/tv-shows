@@ -9,7 +9,7 @@ const clc = require('cli-color');
 const buildForProduction = env.APP_ENV === 'production';
 
 const extractSass = new ExtractTextPlugin({
-  filename: ('[name].css'),
+  filename: buildForProduction ? '[name].[contenthash].css' : '[name].css',
 });
 
 const plugins = [
@@ -37,7 +37,7 @@ module.exports = {
     app: './resources/js/index.js',
   },
   output: {
-    filename: ('[name].js'),
+    filename: (buildForProduction ? '[name].[hash].js' : '[name].js'),
     publicPath: 'public/dist/build/',
     path: path.resolve(__dirname, 'dist/public/dist/build'),
   },
