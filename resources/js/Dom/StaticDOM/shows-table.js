@@ -1,4 +1,7 @@
-function showsTable() {
+import ShowList from '../Shows/ShowList';
+import renderShow from '../render-show';
+
+function showsTable(data) {
   return `
     <div class="show-table show-table--view-list" id="show-table">
       <ul>
@@ -16,6 +19,9 @@ function showsTable() {
         <li>IMDB</li>
       </ul>
       <div id="table-from-json" class="show-table-json">
+        ${data.map(props => `
+          ${renderShow(ShowList, props)}
+        `).join('')}
       </div>
     </div>
   `;

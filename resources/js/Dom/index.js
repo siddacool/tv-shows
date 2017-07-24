@@ -16,3 +16,8 @@ const makeShows = () => {
 };
 
 makeShows();
+
+addEventListener('resize', () => {
+  makeShows();
+});
+
