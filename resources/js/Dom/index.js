@@ -24,7 +24,18 @@ const renderTableData = () => {
 };
 
 setTimeout(() => {
-  renderTableData();
+  const makeTable = setInterval(() => {
+    retry();
+  }, 300);
+
+  function retry() {
+    if (!document.querySelector('[data-show-id]')) {
+      renderTableData();
+      console.log('called');
+    } else {
+      clearInterval(makeTable);
+    }
+  }
 }, 300);
 
 addEventListener('resize', () => {
