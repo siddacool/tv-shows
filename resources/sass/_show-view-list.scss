@@ -136,44 +136,44 @@ $list-info-imdb-hover-color: $aui-b300;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    &:nth-child(2) {
+    &:nth-child(1) {
       padding-left: 18px;
       width: $show-table-td-name;
     }
 
-    &:nth-child(3) {
+    &:nth-child(2) {
       width: $show-table-td-genre;
     }
 
-    &:nth-child(4) {
+    &:nth-child(3) {
       width: $show-table-td-type;
     }
 
-    &:nth-child(5) {
+    &:nth-child(4) {
       width: $show-table-td-mindf;
     }
 
-    &:nth-child(6) {
+    &:nth-child(5) {
       width: $show-table-td-network;
     }
 
-    &:nth-child(7) {
+    &:nth-child(6) {
       width: $show-table-td-runtime;
     }
 
-    &:nth-child(8) {
+    &:nth-child(7) {
       width: $show-table-td-seasons;
     }
 
-    &:nth-child(9) {
+    &:nth-child(8) {
       width: $show-table-td-avgepisodes;
     }
 
-    &:nth-child(10) {
+    &:nth-child(9) {
       width: $show-table-td-status;
     }
 
-    &:nth-child(11) {
+    &:nth-child(10) {
       width: $show-table-td-imdb;
     }
   }
