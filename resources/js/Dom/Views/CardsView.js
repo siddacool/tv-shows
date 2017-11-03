@@ -1,10 +1,8 @@
-
+import CardContainer from '../Containers/CardContainer';
 
 export default function (data) {
-  /*const table = new Table(data.api);
+  const cardContainer = new CardContainer(data.api);
   const wrapper = document.getElementById('wrapper');
 
-  table.replaceContentOf(wrapper);*/
-
-  console.log(data);
+  cardContainer.replaceContentOf(wrapper);
 }

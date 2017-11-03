@@ -5,7 +5,7 @@ import GenreTd from './GenreTd';
 import MindFuckTd from './MindFuckTd';
 import RuntimeTd from './RuntimeTd';
 import SeasonTd from './SeasonTd';
-import AvgEpisodeTd from './AvgEpisodeTd';
+import EpisodeTd from './EpisodeTd';
 import StatusOngoingTd from './StatusOngoingTd';
 import StatusFinishedTd from './StatusFinishedTd';
 import ImdbTd from './ImdbTd';
@@ -35,7 +35,7 @@ export default class extends Component {
     const Network = new TextTd(this.network, 'network');
     const Runtime = new RuntimeTd(this.runtime);
     const Season = new SeasonTd(this.seasons);
-    const AvgEpisode = new AvgEpisodeTd(this.avgepisodes);
+    const Episode = new EpisodeTd(this.avgepisodes);
     const StatusOngoing = new StatusOngoingTd();
     const StatusFinished = new StatusFinishedTd();
     const Imdb = new ImdbTd(this.name, this.imdb);
@@ -49,7 +49,7 @@ export default class extends Component {
         ${Network.render()}
         ${Runtime.render()}
         ${Season.render()}
-        ${AvgEpisode.render()}
+        ${Episode.render()}
         ${this.status === 'ongoing' ? `${StatusOngoing.render()}` : `${StatusFinished.render()}`}
         ${Imdb.render()}
       <ol>
