@@ -1,10 +1,10 @@
 import PillCard from './PillCard';
 
 function checkEpisode(showEpisodes) {
-  let epText = 'episode';
+  let epText = 'Episode';
 
   if (showEpisodes > 1) {
-    epText = 'episodes';
+    epText = `${epText}s`;
   }
 
   return epText;

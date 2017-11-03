@@ -1,10 +1,10 @@
 import PillCard from './PillCard';
 
 function checkSeason(showSeasons) {
-  let seasonText = 'season';
+  let seasonText = 'Season';
 
   if (showSeasons > 1) {
-    seasonText = 'seasons';
+    seasonText = `${seasonText}s`;
   }
 
   return seasonText;
