@@ -1,4 +1,4 @@
-import BaseDynamicDom from './base-dynamic-dom-class';
+import { ActiveComponent } from 'domr-a';
 
 const filterActiveLoop = (thisTarget) => {
   const allRowSelectors = document.querySelectorAll('.row-selector--dynamic');
@@ -13,26 +13,25 @@ const filterActiveLoop = (thisTarget) => {
   }
 };
 
-const onClickEvent = (target) => {
-  target.addEventListener('click', (event) => {
-    event.preventDefault();
-    filterActiveLoop(target);
-  });
-};
-
-export default class extends BaseDynamicDom {
-  constructor(id = 'nota') {
-    super(id);
+export default class extends ActiveComponent {
+  constructor(dynamic = true) {
+    super('select-td');
+    this.dynamic = dynamic;
   }
 
   dom() {
     return `
-      <a href="#" data-dom-id="${this.id}" class="row-selector row-selector--dynamic"></a>
+      <a href="#" class="row-selector ${this.dynamic ? 'row-selector--dynamic' : ''}"></a>
     `;
   }
 
   events() {
-    const target = document.querySelector(`[data-dom-id="${this.id}"]`);
-    onClickEvent(target);
+    if (this.dynamic) {
+      const target = this.target();
+      target.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('select-td');
+      });
+    }
   }
 }
