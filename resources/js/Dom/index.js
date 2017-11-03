@@ -1,23 +1,28 @@
-import viewShowTable from './Views/view-show-table';
-import viewShowCards from './Views/view-show-cards';
+import { Router } from 'domr-a';
+import TableView from './Views/TableView';
+import CardsView from './Views/CardsView';
 
 const api = 'https://raw.githubusercontent.com/siddacool/api-set/master/youshouldbewatching.json';
 
-const makeShows = () => {
-  if (window.innerWidth <= 1253) {
-    if (!document.querySelector('.show-table--view-card')) {
-      viewShowCards(api);
-    }
-  } else {
-    if (!document.querySelector('.show-table--view-list')) {
-      viewShowTable(api);
-    }
-  }
-};
+const routes = [
+  {
+    name: 'Desktop Table View',
+    path: '/',
+    view: TableView,
+    isDefault: true,
+    api,
+  },
+  {
+    name: 'Cards View',
+    path: '/cards',
+    view: CardsView,
+    api,
+  },
+];
 
-makeShows();
-
-addEventListener('resize', () => {
-  makeShows();
+const router = new Router(routes, {
+  redirectDefault: true,
+  clearLog: true,
 });
 
+router.start();
