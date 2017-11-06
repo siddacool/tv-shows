@@ -1,30 +1,28 @@
 import { ActiveComponent } from 'domr-a';
-import Card from './Card';
+import Tr from './Tr';
 import loadApi from '../utils/load-api';
 
 const defaultApi = [];
 
-function loopTableRows(obj) {
-  const tableJson = document.getElementById('table-from-json');
+function loopTableRows(obj, target) {
+  const tableJson = target;
 
   obj.forEach((row) => {
-    const card = new Card(row);
+    const tr = new Tr(row);
 
-    card.addTo(tableJson);
+    tr.addTo(tableJson);
   });
 }
 
 export default class extends ActiveComponent {
   constructor(api = defaultApi) {
-    super('show-table');
+    super('table-json');
     this.api = api;
   }
 
   dom() {
     return `
-      <div class="show-table show-table--view-card" id="show-table">
-        <div id="table-from-json" class="show-table-json">
-        </div>
+      <div id="table-from-json" class="show-table-json">
       </div>
     `;
   }
