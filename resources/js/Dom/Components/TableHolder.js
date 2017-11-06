@@ -1,7 +1,6 @@
-import { ActiveComponent } from 'domr-a';
-import Tr from './Tr';
+import { Component } from 'domr-a';
+import TableJson from './TableJson';
 import Th from './Th';
-import loadApi from '../utils/load-api';
 
 const fields = [
   'name',
@@ -18,34 +17,21 @@ const fields = [
 
 const defaultApi = [];
 
-function loopTableRows(obj) {
-  const tableJson = document.getElementById('table-from-json');
-
-  obj.forEach((row) => {
-    const tr = new Tr(row);
-
-    tr.addTo(tableJson);
-  });
-}
-
-export default class extends ActiveComponent {
+export default class extends Component {
   constructor(api = defaultApi) {
-    super('show-table');
+    super();
     this.fields = fields;
     this.api = api;
   }
 
   dom() {
     const th = new Th(this.fields);
+    const tableJson = new TableJson(this.api);
     return `
       <div class="show-table show-table--view-list" id="show-table">
         ${th.render()}
-        <div id="table-from-json" class="show-table-json"></div>
+        ${tableJson.render()}
       </div>
     `;
-  }
-
-  events() {
-    loadApi(this.api, loopTableRows);
   }
 }
