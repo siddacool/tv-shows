@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "public/dist/build/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -69,11 +69,11 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Component__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ActiveComponent__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Router__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Component__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ActiveComponent__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Logger__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils__ = __webpack_require__(22);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Component", function() { return __WEBPACK_IMPORTED_MODULE_0__Component__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "ActiveComponent", function() { return __WEBPACK_IMPORTED_MODULE_1__ActiveComponent__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_2__Router__["a"]; });
@@ -209,8 +209,8 @@ exports.default = class extends _domrA.Component {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hash_location_set__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hash_location_get__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hash_location_set__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hash_location_get__ = __webpack_require__(21);
 
 
 
@@ -294,19 +294,47 @@ exports.default = class extends _TextTd2.default {
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _domrA = __webpack_require__(0);
+
+exports.default = class extends _domrA.Component {
+  constructor() {
+    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var fieldName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    var ui = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var icon = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+    super();
+    this.text = text;
+    this.fieldName = fieldName;
+    this.ui = ui;
+    this.icon = icon;
+  }
+
+  dom() {
+    return '\n      <span class="show-card-info--' + this.fieldName + '">\n        <span class="ui-tag ui-tag--' + this.ui + ' ' + (this.icon ? 'ui-tag--icon' : '') + '">\n          ' + this.text + '\n        </span>\n      </span>\n    ';
+  }
+};
+
+/***/ }),
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_create_element__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_lookup__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_randomizer__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Logger__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_create_element__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Logger__ = __webpack_require__(1);
 
 
 
-
-
-const logger = new __WEBPACK_IMPORTED_MODULE_3__Logger__["a" /* default */]();
+const logger = new __WEBPACK_IMPORTED_MODULE_1__Logger__["a" /* default */]();
 
 const defaults = {
   parent: document.getElementById('wrapper'),
@@ -318,20 +346,9 @@ const defaults = {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (class {
-  constructor(domrid = 'component', random = false) {
-    this.makeId = () => {
-      let thisId = domrid;
-      if (random) {
-        thisId = `${domrid}-${__WEBPACK_IMPORTED_MODULE_2__helpers_randomizer__["a" /* default */](7)}`;
-      }
-      return thisId;
-    };
-    this.domrid = this.makeId();
+  constructor() {
     this.parentDefault = defaults.parent;
     this.domContent = defaults.dom;
-    this.lookup = () => {
-      return __WEBPACK_IMPORTED_MODULE_1__helpers_lookup__["a" /* default */](this.domrid);
-    };
     this.createElement = __WEBPACK_IMPORTED_MODULE_0__helpers_create_element__["a" /* default */];
   }
 
@@ -343,9 +360,7 @@ const defaults = {
     return this.createElement(this.dom());
   }
 
-  fireEventAfterTimeout() {
-    return '';
-  }
+  fireEventAfterTimeout() {}
 
   addTo(parent = this.parentDefault) {
     parent.insertAdjacentHTML('beforeend', this.renderNodes());
@@ -404,7 +419,24 @@ const defaults = {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
+  var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+  return '\n    <span class="ui-pill ui-pill--info">' + text + '</span>\n  ';
+};
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -430,18 +462,70 @@ exports.default = class extends _TextTdColor2.default {
 };
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(8);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function loadApi(api, target, view) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', api, true);
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState === 4) {
+      if (xmlhttp.status === 200) {
+        var obj = JSON.parse(xmlhttp.responseText);
+        view(obj, target);
+      }
+    }
+  };
+  xmlhttp.send(null);
+}
 
-__webpack_require__(39);
+exports.default = loadApi;
 
 /***/ }),
-/* 8 */
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _PillCard = __webpack_require__(5);
+
+var _PillCard2 = _interopRequireDefault(_PillCard);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = class extends _PillCard2.default {
+  constructor() {
+    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var ui = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    super(text, 'status', ui);
+  }
+};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(12);
+
+__webpack_require__(51);
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -449,11 +533,11 @@ __webpack_require__(39);
 
 var _domrA = __webpack_require__(0);
 
-var _TableView = __webpack_require__(19);
+var _TableView = __webpack_require__(23);
 
 var _TableView2 = _interopRequireDefault(_TableView);
 
-var _CardsView = __webpack_require__(38);
+var _CardsView = __webpack_require__(39);
 
 var _CardsView2 = _interopRequireDefault(_CardsView);
 
@@ -482,7 +566,7 @@ var router = new _domrA.Router(routes, {
 router.start();
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -505,58 +589,28 @@ function createElement(str, domrDataId) {
 
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-function Lookup(elmId) {
-  const targetDataTag = `[data-domr-id="${elmId}"]`;
-  const targetSelector = document.querySelector(targetDataTag);
-  const targetDuplicate = document.querySelectorAll(targetDataTag)[1];
-
-  if (targetSelector) {
-    if (targetDuplicate) {
-      console.log(`${targetDataTag} Duplicate found`);
-      console.log('data-domr-id ids should be unique');
-    } else {
-      return document.querySelector(`[data-domr-id="${elmId}"]`);
-    }
-  } else {
-    console.log(`${elmId} does not exist`);
-    console.log(`Could not find ${targetDataTag}`);
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Lookup);
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function randomizer(stringLength = 7) {
-  return Math.random().toString(36).substr(2, stringLength);
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (randomizer);
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Component__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Component__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Logger__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_lookup__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_randomizer__ = __webpack_require__(16);
+
+
 
 
 
 const logger = new __WEBPACK_IMPORTED_MODULE_1__Logger__["a" /* default */]();
 
 /* harmony default export */ __webpack_exports__["a"] = (class extends __WEBPACK_IMPORTED_MODULE_0__Component__["a" /* default */] {
-  constructor(domrid) {
-    super(domrid, true);
+  constructor(domrid = 'domr-active-component') {
+    super();
+    this.domrid = `${domrid}-${__WEBPACK_IMPORTED_MODULE_3__helpers_randomizer__["a" /* default */](7)}`;
+    this.lookup = () => {
+      return __WEBPACK_IMPORTED_MODULE_2__helpers_lookup__["a" /* default */](this.domrid);
+    };
     this.target = this.lookup;
   }
 
@@ -572,7 +626,7 @@ const logger = new __WEBPACK_IMPORTED_MODULE_1__Logger__["a" /* default */]();
       if (this.lookup()) {
         this.events();
       }
-    }, 1);
+    }, 50);
   }
 
   renderNodes() {
@@ -582,12 +636,40 @@ const logger = new __WEBPACK_IMPORTED_MODULE_1__Logger__["a" /* default */]();
 
 
 /***/ }),
-/* 13 */
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+function Lookup(elmId) {
+  const targetSelector = document.querySelector(`[data-domr-id="${elmId}"]`);
+
+  if (targetSelector) {
+    return targetSelector;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Lookup);
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+function randomizer(stringLength = 7) {
+  return Math.random().toString(36).substr(2, stringLength);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (randomizer);
+
+
+/***/ }),
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Logger__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_add_view__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_add_view__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_hash_location__ = __webpack_require__(3);
 
 
@@ -690,11 +772,11 @@ const defaults = {
 
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clone_object__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clone_object__ = __webpack_require__(19);
 
 
 function addView(candidate) {
@@ -717,7 +799,7 @@ function addView(candidate) {
 
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -750,7 +832,7 @@ function cloneObject(obj, skipList = defaultSkipList) {
 
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -861,7 +943,7 @@ function hashLocationSet(field, opt) {
 
 
 /***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -888,7 +970,7 @@ function hashLocationGet(field) {
 
 
 /***/ }),
-/* 18 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -903,7 +985,7 @@ const utils = {
 
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -927,14 +1009,14 @@ exports.default = function (data) {
 
 var _domrA = __webpack_require__(0);
 
-var _Table = __webpack_require__(20);
+var _Table = __webpack_require__(24);
 
 var _Table2 = _interopRequireDefault(_Table);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -946,7 +1028,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _domrA = __webpack_require__(0);
 
-var _TableHolder = __webpack_require__(21);
+var _TableHolder = __webpack_require__(25);
 
 var _TableHolder2 = _interopRequireDefault(_TableHolder);
 
@@ -968,7 +1050,7 @@ exports.default = class extends _domrA.Component {
 };
 
 /***/ }),
-/* 21 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -980,17 +1062,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _domrA = __webpack_require__(0);
 
-var _Tr = __webpack_require__(26);
+var _TableJson = __webpack_require__(26);
 
-var _Tr2 = _interopRequireDefault(_Tr);
+var _TableJson2 = _interopRequireDefault(_TableJson);
 
-var _Th = __webpack_require__(22);
+var _Th = __webpack_require__(37);
 
 var _Th2 = _interopRequireDefault(_Th);
-
-var _loadApi = __webpack_require__(44);
-
-var _loadApi2 = _interopRequireDefault(_loadApi);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -998,8 +1076,49 @@ var fields = ['name', 'genre', 'type', 'mindfuck', 'network', 'runtime', 'season
 
 var defaultApi = [];
 
-function loopTableRows(obj) {
-  var tableJson = document.getElementById('table-from-json');
+exports.default = class extends _domrA.Component {
+  constructor() {
+    var api = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultApi;
+
+    super();
+    this.fields = fields;
+    this.api = api;
+  }
+
+  dom() {
+    var th = new _Th2.default(this.fields);
+    var tableJson = new _TableJson2.default(this.api);
+    return '\n      <div class="show-table show-table--view-list" id="show-table">\n        ' + th.render() + '\n        ' + tableJson.render() + '\n      </div>\n    ';
+  }
+};
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _domrA = __webpack_require__(0);
+
+var _Tr = __webpack_require__(27);
+
+var _Tr2 = _interopRequireDefault(_Tr);
+
+var _loadApi = __webpack_require__(9);
+
+var _loadApi2 = _interopRequireDefault(_loadApi);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var defaultApi = [];
+
+function loopTableRows(obj, target) {
+  var tableJson = target;
 
   obj.forEach(function (row) {
     var tr = new _Tr2.default(row);
@@ -1012,93 +1131,22 @@ exports.default = class extends _domrA.ActiveComponent {
   constructor() {
     var api = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultApi;
 
-    super('show-table');
-    this.fields = fields;
+    super('table-json');
     this.api = api;
   }
 
   dom() {
-    var th = new _Th2.default(this.fields);
-    return '\n      <div class="show-table show-table--view-list" id="show-table">\n        ' + th.render() + '\n        <div id="table-from-json" class="show-table-json"></div>\n      </div>\n    ';
+    return '\n      <div id="table-from-json" class="show-table-json">\n      </div>\n    ';
   }
 
   events() {
-    (0, _loadApi2.default)(this.api, loopTableRows);
+    var target = this.target();
+    (0, _loadApi2.default)(this.api, target, loopTableRows);
   }
 };
 
 /***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _domrA = __webpack_require__(0);
-
-var _TextHeadingTd = __webpack_require__(23);
-
-var _TextHeadingTd2 = _interopRequireDefault(_TextHeadingTd);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var defaultFields = [];
-
-function makeFields(field) {
-  var textHeadingTd = new _TextHeadingTd2.default(field);
-
-  return '' + textHeadingTd.render();
-}
-
-exports.default = class extends _domrA.Component {
-  constructor() {
-    var fields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultFields;
-
-    super();
-    this.fields = fields;
-  }
-
-  dom() {
-    return '\n      <ul>\n        ' + this.fields.map(function (field) {
-      return '' + makeFields(field);
-    }).join('') + '\n      </ul>\n    ';
-  }
-};
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _domrA = __webpack_require__(0);
-
-exports.default = class extends _domrA.Component {
-  constructor() {
-    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-    super();
-    this.text = text;
-  }
-
-  dom() {
-    return '\n      <li>' + this.text + '</li>\n    ';
-  }
-};
-
-/***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1114,11 +1162,11 @@ var _TextTd = __webpack_require__(2);
 
 var _TextTd2 = _interopRequireDefault(_TextTd);
 
-var _NameTd = __webpack_require__(27);
+var _NameTd = __webpack_require__(28);
 
 var _NameTd2 = _interopRequireDefault(_NameTd);
 
-var _GenreTd = __webpack_require__(28);
+var _GenreTd = __webpack_require__(29);
 
 var _GenreTd2 = _interopRequireDefault(_GenreTd);
 
@@ -1126,27 +1174,27 @@ var _MindFuckTd = __webpack_require__(30);
 
 var _MindFuckTd2 = _interopRequireDefault(_MindFuckTd);
 
-var _RuntimeTd = __webpack_require__(32);
+var _RuntimeTd = __webpack_require__(31);
 
 var _RuntimeTd2 = _interopRequireDefault(_RuntimeTd);
 
-var _SeasonTd = __webpack_require__(33);
+var _SeasonTd = __webpack_require__(32);
 
 var _SeasonTd2 = _interopRequireDefault(_SeasonTd);
 
-var _EpisodeTd = __webpack_require__(34);
+var _EpisodeTd = __webpack_require__(33);
 
 var _EpisodeTd2 = _interopRequireDefault(_EpisodeTd);
 
-var _StatusOngoingTd = __webpack_require__(35);
+var _StatusOngoingTd = __webpack_require__(34);
 
 var _StatusOngoingTd2 = _interopRequireDefault(_StatusOngoingTd);
 
-var _StatusFinishedTd = __webpack_require__(36);
+var _StatusFinishedTd = __webpack_require__(35);
 
 var _StatusFinishedTd2 = _interopRequireDefault(_StatusFinishedTd);
 
-var _ImdbTd = __webpack_require__(37);
+var _ImdbTd = __webpack_require__(36);
 
 var _ImdbTd2 = _interopRequireDefault(_ImdbTd);
 
@@ -1189,7 +1237,7 @@ exports.default = class extends _domrA.Component {
 };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1236,7 +1284,7 @@ exports.default = class extends _domrA.ActiveComponent {
 };
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1250,7 +1298,7 @@ var _TextTd = __webpack_require__(2);
 
 var _TextTd2 = _interopRequireDefault(_TextTd);
 
-var _genre = __webpack_require__(29);
+var _genre = __webpack_require__(7);
 
 var _genre2 = _interopRequireDefault(_genre);
 
@@ -1269,23 +1317,6 @@ exports.default = class extends _TextTd2.default {
       return '' + (0, _genre2.default)(g);
     }).join('');
   }
-};
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-  return '\n    <span class="ui-pill ui-pill--info">' + text + '</span>\n  ';
 };
 
 /***/ }),
@@ -1317,8 +1348,7 @@ exports.default = class extends _TextTd2.default {
 };
 
 /***/ }),
-/* 31 */,
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1343,7 +1373,7 @@ exports.default = class extends _TextTdColor2.default {
 };
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1368,7 +1398,7 @@ exports.default = class extends _TextTdColor2.default {
 };
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1393,7 +1423,7 @@ exports.default = class extends _TextTdColor2.default {
 };
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1403,7 +1433,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _StatusTd = __webpack_require__(6);
+var _StatusTd = __webpack_require__(8);
 
 var _StatusTd2 = _interopRequireDefault(_StatusTd);
 
@@ -1416,7 +1446,7 @@ exports.default = class extends _StatusTd2.default {
 };
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1426,7 +1456,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _StatusTd = __webpack_require__(6);
+var _StatusTd = __webpack_require__(8);
 
 var _StatusTd2 = _interopRequireDefault(_StatusTd);
 
@@ -1439,7 +1469,7 @@ exports.default = class extends _StatusTd2.default {
 };
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1473,7 +1503,75 @@ exports.default = class extends _TextTd2.default {
 };
 
 /***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _domrA = __webpack_require__(0);
+
+var _TextHeadingTd = __webpack_require__(38);
+
+var _TextHeadingTd2 = _interopRequireDefault(_TextHeadingTd);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var defaultFields = [];
+
+function makeFields(field) {
+  var textHeadingTd = new _TextHeadingTd2.default(field);
+
+  return '' + textHeadingTd.render();
+}
+
+exports.default = class extends _domrA.Component {
+  constructor() {
+    var fields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultFields;
+
+    super();
+    this.fields = fields;
+  }
+
+  dom() {
+    return '\n      <ul>\n        ' + this.fields.map(function (field) {
+      return '' + makeFields(field);
+    }).join('') + '\n      </ul>\n    ';
+  }
+};
+
+/***/ }),
 /* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _domrA = __webpack_require__(0);
+
+exports.default = class extends _domrA.Component {
+  constructor() {
+    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+    super();
+    this.text = text;
+  }
+
+  dom() {
+    return '\n      <li>' + this.text + '</li>\n    ';
+  }
+};
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1490,51 +1588,14 @@ exports.default = function (data) {
   cardContainer.replaceContentOf(wrapper);
 };
 
-var _CardContainer = __webpack_require__(48);
+var _CardContainer = __webpack_require__(40);
 
 var _CardContainer2 = _interopRequireDefault(_CardContainer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-function loadApi(api, view) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', api, true);
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState === 4) {
-      if (xmlhttp.status === 200) {
-        var obj = JSON.parse(xmlhttp.responseText);
-        view(obj);
-      }
-    }
-  };
-  xmlhttp.send(null);
-}
-
-exports.default = loadApi;
-
-/***/ }),
-/* 45 */,
-/* 46 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1546,61 +1607,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _domrA = __webpack_require__(0);
 
-exports.default = class extends _domrA.Component {
-  constructor() {
-    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-    var fieldName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-    super();
-    this.text = text;
-    this.fieldName = fieldName;
-  }
-
-  dom() {
-    return '\n      <span class="show-card-info--' + this.fieldName + '">' + this.text + '</span>\n    ';
-  }
-};
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _PillCard = __webpack_require__(58);
-
-var _PillCard2 = _interopRequireDefault(_PillCard);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = class extends _PillCard2.default {
-  constructor() {
-    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-    var ui = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-    super(text, 'status', ui);
-  }
-};
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _domrA = __webpack_require__(0);
-
-var _CardHolder = __webpack_require__(49);
+var _CardHolder = __webpack_require__(41);
 
 var _CardHolder2 = _interopRequireDefault(_CardHolder);
 
@@ -1622,7 +1629,7 @@ exports.default = class extends _domrA.Component {
 };
 
 /***/ }),
-/* 49 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1634,11 +1641,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _domrA = __webpack_require__(0);
 
-var _Card = __webpack_require__(50);
+var _Card = __webpack_require__(42);
 
 var _Card2 = _interopRequireDefault(_Card);
 
-var _loadApi = __webpack_require__(44);
+var _loadApi = __webpack_require__(9);
 
 var _loadApi2 = _interopRequireDefault(_loadApi);
 
@@ -1669,12 +1676,13 @@ exports.default = class extends _domrA.ActiveComponent {
   }
 
   events() {
-    (0, _loadApi2.default)(this.api, loopTableRows);
+    var target = this.target();
+    (0, _loadApi2.default)(this.api, target, loopTableRows);
   }
 };
 
 /***/ }),
-/* 50 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1686,35 +1694,35 @@ Object.defineProperty(exports, "__esModule", {
 
 var _domrA = __webpack_require__(0);
 
-var _TextCard = __webpack_require__(46);
+var _TextCard = __webpack_require__(43);
 
 var _TextCard2 = _interopRequireDefault(_TextCard);
 
-var _GenreCard = __webpack_require__(51);
+var _GenreCard = __webpack_require__(44);
 
 var _GenreCard2 = _interopRequireDefault(_GenreCard);
 
-var _mindFuckCard = __webpack_require__(59);
+var _mindFuckCard = __webpack_require__(45);
 
 var _mindFuckCard2 = _interopRequireDefault(_mindFuckCard);
 
-var _RuntimeCard = __webpack_require__(53);
+var _RuntimeCard = __webpack_require__(46);
 
 var _RuntimeCard2 = _interopRequireDefault(_RuntimeCard);
 
-var _SeasonCard = __webpack_require__(54);
+var _SeasonCard = __webpack_require__(47);
 
 var _SeasonCard2 = _interopRequireDefault(_SeasonCard);
 
-var _EpisodeCard = __webpack_require__(55);
+var _EpisodeCard = __webpack_require__(48);
 
 var _EpisodeCard2 = _interopRequireDefault(_EpisodeCard);
 
-var _StatusFinishedCard = __webpack_require__(56);
+var _StatusFinishedCard = __webpack_require__(49);
 
 var _StatusFinishedCard2 = _interopRequireDefault(_StatusFinishedCard);
 
-var _StatusOngoingCard = __webpack_require__(57);
+var _StatusOngoingCard = __webpack_require__(50);
 
 var _StatusOngoingCard2 = _interopRequireDefault(_StatusOngoingCard);
 
@@ -1755,7 +1763,7 @@ exports.default = class extends _domrA.Component {
 };
 
 /***/ }),
-/* 51 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1767,7 +1775,35 @@ Object.defineProperty(exports, "__esModule", {
 
 var _domrA = __webpack_require__(0);
 
-var _genre = __webpack_require__(29);
+exports.default = class extends _domrA.Component {
+  constructor() {
+    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var fieldName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    super();
+    this.text = text;
+    this.fieldName = fieldName;
+  }
+
+  dom() {
+    return '\n      <span class="show-card-info--' + this.fieldName + '">' + this.text + '</span>\n    ';
+  }
+};
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _domrA = __webpack_require__(0);
+
+var _genre = __webpack_require__(7);
 
 var _genre2 = _interopRequireDefault(_genre);
 
@@ -1791,8 +1827,7 @@ exports.default = class extends _domrA.Component {
 };
 
 /***/ }),
-/* 52 */,
-/* 53 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1802,7 +1837,22 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _PillCard = __webpack_require__(58);
+exports.default = function () {
+  return "\n    <span class=\"show-card-info--mindf\">\n      <span class=\"ui-pill ui-pill--danger\">Mind Fuck</span>\n    </span>\n  ";
+};
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _PillCard = __webpack_require__(5);
 
 var _PillCard2 = _interopRequireDefault(_PillCard);
 
@@ -1823,7 +1873,7 @@ exports.default = class extends _PillCard2.default {
 };
 
 /***/ }),
-/* 54 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1833,7 +1883,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _PillCard = __webpack_require__(58);
+var _PillCard = __webpack_require__(5);
 
 var _PillCard2 = _interopRequireDefault(_PillCard);
 
@@ -1862,7 +1912,7 @@ exports.default = class extends _PillCard2.default {
 };
 
 /***/ }),
-/* 55 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1872,7 +1922,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _PillCard = __webpack_require__(58);
+var _PillCard = __webpack_require__(5);
 
 var _PillCard2 = _interopRequireDefault(_PillCard);
 
@@ -1901,7 +1951,7 @@ exports.default = class extends _PillCard2.default {
 };
 
 /***/ }),
-/* 56 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1911,7 +1961,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _StatusCard = __webpack_require__(47);
+var _StatusCard = __webpack_require__(10);
 
 var _StatusCard2 = _interopRequireDefault(_StatusCard);
 
@@ -1924,7 +1974,7 @@ exports.default = class extends _StatusCard2.default {
 };
 
 /***/ }),
-/* 57 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1934,7 +1984,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _StatusCard = __webpack_require__(47);
+var _StatusCard = __webpack_require__(10);
 
 var _StatusCard2 = _interopRequireDefault(_StatusCard);
 
@@ -1947,51 +1997,10 @@ exports.default = class extends _StatusCard2.default {
 };
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 51 */
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _domrA = __webpack_require__(0);
-
-exports.default = class extends _domrA.Component {
-  constructor() {
-    var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-    var fieldName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-    var ui = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-    var icon = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
-    super();
-    this.text = text;
-    this.fieldName = fieldName;
-    this.ui = ui;
-    this.icon = icon;
-  }
-
-  dom() {
-    return '\n      <span class="show-card-info--' + this.fieldName + '">\n        <span class="ui-tag ui-tag--' + this.ui + ' ' + (this.icon ? 'ui-tag--icon' : '') + '">\n          ' + this.text + '\n        </span>\n      </span>\n    ';
-  }
-};
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  return "\n    <span class=\"show-card-info--mindf\">\n      <span class=\"ui-pill ui-pill--danger\">Mind Fuck</span>\n    </span>\n  ";
-};
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
